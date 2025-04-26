@@ -70,5 +70,11 @@ public class empcontroller {
 		return new ResponseEntity<>(empserv.getAllPagination(page, size), HttpStatus.OK);
 	}
 	
+	@PutMapping("/{id}")
+	public Users ExEmployee(@PathVariable int id, @RequestBody Users user) {
+	    user.setUserid(id); // ✅ Set the ID from the path into the user object
+	    return empserv.update(user);
+	}
+	
 	
 }
